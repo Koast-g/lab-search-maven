@@ -114,4 +114,18 @@ public class TestSearch {
     assertBinarySearchFails(new int[] { 0, 1, 2, 3, 4 }, 6);
   } // testBinarySearchFive()
 
+  @Test
+  void johnBentleyTest() throws Exception{
+    for(int s = 1; s < 33; s++){
+      int[] arr = new int[s];
+      for(int i = 0; i < s; i++){
+        arr[i] = 2*i;
+      }
+      for(int i = 0; i < s; i++){
+        assertBinarySearchFinds(i, arr, i*2);
+        assertBinarySearchFails(arr, 2*i+1);
+      }
+      assertBinarySearchFails(arr, -1);
+    }
+  }
 } // class TestSearch
